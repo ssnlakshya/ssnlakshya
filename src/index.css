@@ -493,10 +493,6 @@ body::before {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
-  transform: rotateY(180deg);
-}
 
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -606,6 +602,11 @@ body::before {
 
 .flip-card-inner {
   transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+/* React-controlled flip */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
 /* Hide role badge on card front */
@@ -830,4 +831,8 @@ body::before {
   border-color: rgba(255, 107, 53, 0.6) !important;
   border-width: 1.5px !important;
   border-style: solid !important;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
