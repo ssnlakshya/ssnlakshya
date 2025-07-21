@@ -39,13 +39,16 @@ const TeamSection = ({ title, members }) => {
                   <div className="profile-container text-center">
                     <div className="relative">
                       <img
-                        src={'/assets/team-photos/image.png'}
+                        src={member.img}
                         alt={member.name}
-                        className="profile-image transition-all duration-300"
+                        className="profile-image transition-all duration-300 w-56 h-56 object-cover rounded-full mx-auto border-4 border-orange-400"
                       />
                     </div>
                   </div>
-                  <h3 className="grid-name text-center">{member.name}</h3>
+                  <div className="flex flex-col items-center mt-4 mb-2">
+                    <h3 className="grid-name text-center text-2xl font-bold leading-tight mb-0">{member.name}</h3>
+                    <span className="member-role text-base font-medium text-orange-500 mt-0.5">{member.role}</span>
+                  </div>
                   <div className="member-info text-center mb-3">
                     <p className="text-orange-400 font-semibold text-sm mb-1">{member.year}</p>
                     <p className="text-gray-300 text-xs">{member.department}</p>
