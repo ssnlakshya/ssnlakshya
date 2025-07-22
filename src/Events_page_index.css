@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@400;700&display=swap');
+@import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* CSS Variables */
+:root {
+  --lakshya-dark: #1e1e1e;
+  --lakshya-hero-start: #ff8a00;
+  --lakshya-hero-end: #ffb43a;
+  --lakshya-accent-red: #ff3b00;
+  --lakshya-accent-yellow: #ffd400;
+  --lakshya-text: #ffffff;
+  --lakshya-text-muted: #d1d5db;
+  --font-display: 'Bitcount Prop Single', monospace;
+}
+
+html {
+  font-family: var(--font-display);
+}
+body {
+  margin: 0;
+  background-color: var(--lakshya-dark);
+  color: var(--lakshya-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 140, 0, 0.5) var(--lakshya-dark);
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--lakshya-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 140, 0, 0.5);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 180, 0, 0.7);
+}
+
+/* Glowing Button */
+.button {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #FF6B35, #FFA630, #FF8C42);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button span {
+  position: relative;
+  z-index: 1;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: #272727;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+.button:hover::before {
+  opacity: 0.7;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #FF6B35, #FFA630, #FF8C42);
+  border-radius: 8px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: 0.5s;
+}
+.button:hover::after {
+  opacity: 1;
+}
+
+/* Flip Card Styles */
+.event-flip-card {
+  width: 340px;
+  height: 245px;
+  perspective: 1000px;
+  margin: 0 auto;
+  transition: box-shadow 0.3s;
+}
+.event-flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+  box-shadow: 0px 0px 24px 3px rgba(255, 180, 0, 0.21);
+  border-radius: 20px;
+}
+.event-flip-card:hover .event-flip-card-inner,
+.event-flip-card:focus-within .event-flip-card-inner {
+  transform: rotateY(180deg) scale(1.03);
+  box-shadow: 0px 0px 38px 8px rgba(255, 180, 0, 0.33);
+}
+.event-flip-front,
+.event-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-display);
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.event-flip-front {
+  background: linear-gradient(135deg, #292014 60%, #d98d29 140%);
+  color: #fff;
+  border: 10px solid #d98d29;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 1rem;
+  box-shadow: 0px 0px 18px 0.5px rgba(217, 91, 45, 0.12);
+}
+.event-flip-back {
+  background: linear-gradient(135deg, #292014 60%, #d98d29 140%);
+  color: #fff;
+  border: 10px solid #d98d29;
+  box-shadow: 0px 0px 12px 2px rgba(140, 90, 0, 0.08);
+  transform: rotateY(180deg);
+  flex-direction: column;
+  padding: 1.4rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  justify-content: flex-start;
+}
+.event-flip-back .button {
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* ✅ Restored Subtle Shimmer Background (fade-only) */
+.gradient-bg-shimmer {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(120deg, #181818 0%, #23201e 50%, #21201a 100%);
+  overflow: hidden;
+}
+
+.gradient-bg-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(250, 94, 37, 0.18) 0%,
+    rgba(250, 152, 24, 0.14) 40%,
+    rgba(34, 16, 8, 0.00) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  animation: shimmer-fade 2.4s ease-in-out infinite;
+}
+
+@keyframes shimmer-fade {
+  0%   { opacity: 0.38; }
+  50%  { opacity: 0.88; }
+  100% { opacity: 0.38; }
+}
+
+/* Footer */
+.footer {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  padding: 0.7rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #444;
+}
+.footer-text {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer-link {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: #f39c12;
+}
+
+/* Neon Title – Subtle Glow */
+.neon-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow:
+    0 0 0.75px #fff,
+    0 0 1.2px currentColor,
+    0 0 1.8px rgba(255, 166, 48, 0.09);
+  margin-bottom: 1rem;
+}
+
+.money-3d-hero {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.money-coin-animate {
+  position: absolute;
+  will-change: transform;
+}
+
+/* Container for 3D coin effect and spin */
+.money-coin-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: coin-3d-spin 1.45s linear infinite;
+}
+
+.money-coin-3d-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  transform: translateZ(13px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.money-coin-3d-edge {
+  position: absolute;
+  top: 17px; left: 16.5px;
+  width: 45px; height: 44px;
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, #ff8a00 0%, #d98d29 75%, #23201e 100%);
+  opacity: 0.88;
+  transform: rotateX(88deg);
+  z-index: 0;
+  /* Subtle 3D blur for edge */
+  filter: blur(0.6px);
+}
+
+/* Coin glides left to right in a smooth, natural arc */
+@keyframes coin-slide-3d {
+  0%   { left: 0vw;   bottom: 37%; transform: scale(1) rotateY(0deg);}
+  15%  { left: 18vw;  bottom: 57%; transform: scale(1.1) rotateY(75deg);}
+  38%  { left: 47vw;  bottom: 51%; transform: scale(1.07) rotateY(185deg);}
+  78%  { left: 86vw;  bottom: 50%; transform: scale(1.02) rotateY(340deg);}
+  100% { left: 97vw;  bottom: 38%; transform: scale(0.95) rotateY(359deg);}
+}
+
+/* Coin spins smoothly on its Y axis for 3D effect */
+@keyframes coin-3d-spin {
+  0% { transform: rotateY(0deg);}
+  100% { transform: rotateY(360deg);}
+}
+
+@media (max-width: 900px) {
+  .money-3d-hero { display: none; }
+}
+
+:root {
+  --lakshya-coin-front: #FFA630;
+  --lakshya-coin-back: #FF6B35;
+  --lakshya-coin-edge: #d98d29;
+  --lakshya-coin-shadow: rgba(0,0,0,.55);
+  --lakshya-purse-front: #FF6B35;
+  --lakshya-purse-body: #d98d29;
+  --lakshya-purse-shadow: #181818;
+}
+
+/* Container that spans the hero */
+.lakshya-money-anim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0; /* text content in Hero should sit above (set z-index>0 there) */
+  perspective: 800px;
+}
+
+/* === Lakshya Pouch (orange–black) ========================================= */
+/* Inherit brand tokens from root; fallbacks included. */
+:root {
+  --pouch-base: var(--lakshya-hero-start, #ff8a00);
+  --pouch-shadow: color-mix(in srgb, var(--lakshya-dark, #1e1e1e) 65%, var(--lakshya-hero-start, #ff8a00) 35%);
+  --pouch-highlight: var(--lakshya-hero-end, #ffb43a);
+  --pouch-mouth: var(--lakshya-accent-red, #ff6b35);
+  --pouch-string: var(--lakshya-dark, #1e1e1e);
+  --pouch-size: 180px;
+}
+
+
+
+
+/* -------------------- Coins ----------------------------------------------- */
+.lakshya-coin {
+  position: absolute;
+  left: -10vw; /* starting off-screen */
+  top: 50%;
+  width: clamp(32px,4vw,56px);
+  aspect-ratio: 1/1;
+  transform-origin: center center;
+  pointer-events: none;
+  opacity: 0; /* becomes visible during animation */
+}
+
+/* Each coin picks a path variant via class + keyframes */
+.lakshya-coin-p1 { animation: lak-coin-path-1 linear infinite; }
+.lakshya-coin-p2 { animation: lak-coin-path-2 linear infinite; }
+.lakshya-coin-p3 { animation: lak-coin-path-3 linear infinite; }
+.lakshya-coin-p4 { animation: lak-coin-path-4 linear infinite; }
+.lakshya-coin-p5 { animation: lak-coin-path-5 linear infinite; }
+.lakshya-coin-p6 { animation: lak-coin-path-6 linear infinite; }
+.lakshya-coin-p7 { animation: lak-coin-path-7 linear infinite; }
+
+/* 3D coin build */
+.lakshya-coin-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: lak-coin-spin 1.45s linear infinite;
+}
+
+.lakshya-coin-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(16px,2vw,32px);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 2px #000, 0 0 8px rgba(255,180,0,.8);
+  backface-visibility: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--lakshya-coin-front) 0%, var(--lakshya-coin-back) 60%, #b33c00 100%);
+  box-shadow: inset 0 0 4px rgba(0,0,0,.8), 0 0 8px rgba(255,180,0,.6);
+}
+.lakshya-coin-face.back {
+  transform: rotateY(180deg) translateZ(0.1px); /* minor nudge to avoid z‑fighting */
+}
+
+.hero-section {
+  overflow: visible !important;
+}
+
+.lakshya-coin-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 90deg, var(--lakshya-coin-edge) 0%, #ffb43a 45%, var(--lakshya-coin-edge) 100%);
+  transform: translateZ(-4px) scale(1.02);
+  filter: brightness(0.9);
+}
+
+@keyframes lak-coin-spin {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+
+/* -------------------- Motion Paths ---------------------------------------- */
+/* Notes:
+ *  - We animate the wrapper (.lakshya-coin-*) across the hero using translate3d.
+ *  - End coordinates line up with the purse mouth (approx). Fine‑tune using the
+ *    final translateX/translateY values and hero height.
+ *  - We fade in/out via opacity at 5%/95% so coins pop in off‑screen and vanish
+ *    into the purse.
+ *  - Slight scale up mid‑flight for parallax / depth.
+ */
+
+@keyframes lak-coin-path-1 {
+  0%   { opacity:0; transform: translate3d(-10vw, -20%, 0) scale(var(--lak-coin-scale,1)); }
+  5%   { opacity:1; }
+  40%  { transform: translate3d(25vw, -40%, 60px) scale(calc(var(--lak-coin-scale,1)*1.1)); }
+  70%  { transform: translate3d(60vw, -5%, 0) scale(calc(var(--lak-coin-scale,1)*1.05)); }
+  95%  { opacity:1; transform: translate3d(calc(100vw), -2%, -20px) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-2 {
+  0%   { opacity:0; transform: translate3d(-10vw, 0%, 0) scale(var(--lak-coin-scale,1)); }
+  10%  { opacity:1; }
+  35%  { transform: translate3d(30vw, 10%, 80px) scale(calc(var(--lak-coin-scale,1)*1.2)); }
+  60%  { transform: translate3d(65vw, -10%, 0) scale(calc(var(--lak-coin-scale,1)*1.05)); }
+  95%  { opacity:1; transform: translate3d(calc(100vw), -4%, -20px) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-3 {
+  0%   { opacity:0; transform: translate3d(-10vw, 40%, 0) scale(var(--lak-coin-scale,1)); }
+  8%   { opacity:1; }
+  30%  { transform: translate3d(20vw, 5%, -40px) scale(calc(var(--lak-coin-scale,1)*0.95)); }
+  55%  { transform: translate3d(55vw, -15%, 20px) scale(calc(var(--lak-coin-scale,1)*1.05)); }
+  90%  { opacity:1; transform: translate3d(calc(100vw), -6%, -10px) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-4 {
+  0%   { opacity:0; transform: translate3d(-10vw, -10%, 0) scale(var(--lak-coin-scale,1)); }
+  5%   { opacity:1; }
+  25%  { transform: translate3d(15vw, -25%, 40px) scale(calc(var(--lak-coin-scale,1)*1.05)); }
+  50%  { transform: translate3d(50vw, 5%, -40px) scale(calc(var(--lak-coin-scale,1)*0.95)); }
+  85%  { opacity:1; transform: translate3d(calc(100vw), -1%, 0) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-5 {
+  0%   { opacity:0; transform: translate3d(-10vw, 10%, 0) scale(var(--lak-coin-scale,1)); }
+  10%  { opacity:1; }
+  45%  { transform: translate3d(35vw, -35%, 60px) scale(calc(var(--lak-coin-scale,1)*1.15)); }
+  75%  { transform: translate3d(70vw, -8%, -10px) scale(calc(var(--lak-coin-scale,1)*1.0)); }
+  95%  { opacity:1; transform: translate3d(calc(100vw), -3%, -10px) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-6 {
+  0%   { opacity:0; transform: translate3d(-10vw, -35%, 0) scale(var(--lak-coin-scale,1)); }
+  6%   { opacity:1; }
+  32%  { transform: translate3d(22vw, -5%, 20px) scale(calc(var(--lak-coin-scale,1)*1.05)); }
+  68%  { transform: translate3d(62vw, -22%, -20px) scale(calc(var(--lak-coin-scale,1)*0.9)); }
+  95%  { opacity:1; transform: translate3d(calc(100vw), -4%, 0) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+@keyframes lak-coin-path-7 {
+  0%   { opacity:0; transform: translate3d(-10vw, 30%, 0) scale(var(--lak-coin-scale,1)); }
+  12%  { opacity:1; }
+  38%  { transform: translate3d(28vw, -15%, 50px) scale(calc(var(--lak-coin-scale,1)*1.12)); }
+  72%  { transform: translate3d(66vw, -2%, 0) scale(calc(var(--lak-coin-scale,1)*1.0)); }
+  95%  { opacity:1; transform: translate3d(calc(100vw), -2%, 0) scale(calc(var(--lak-coin-scale,1)*.8)); }
+  100% { opacity:1; transform: translate3d(100vw, -2%, -20px) scale(0.8); }
+}
+
+.lakshya-coin-bobber {
+  width: 100%;
+  height: 100%;
+  animation: lak-coin-bob 2.2s ease-in-out infinite;
+  animation-delay: var(--lak-bob-delay, 0s);
+  will-change: transform;
+}
+
+/* amplitude ~6px; tweak to taste; use CSS var to randomize per coin */
+@keyframes lak-coin-bob {
+  0%, 100% { transform: translateY(calc(var(--lak-bob-amp, 6px) * 0)); }
+  50%      { transform: translateY(calc(var(--lak-bob-amp, 6px) * -1)); }
+}
+/* -------------------- Reduced Motion -------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .lakshya-coin,
+  .lakshya-purse {
+    animation: none !important;
+    transition: none !important;
+  }
+  .lakshya-coin { opacity: 1; transform: none !important; }
+}
+
+
+
+
+
+
+
