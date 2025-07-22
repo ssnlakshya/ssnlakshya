@@ -1,0 +1,36 @@
+.slider-wrapper {
+  background: linear-gradient(120deg, #1a1a1a, #000);
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 4rem auto;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-card {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  font-family: var(--font-display);
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 140, 0, 0.3);
+}
+
+.neon-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow:
+    0 0 0.5px #fff,
+    0 0 1px currentColor,
+    0 0 1px currentColor,
+    0 0 0.1px rgba(255, 166, 48, 0.15);
+  margin-bottom: 1rem;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #ffa630;
+}
