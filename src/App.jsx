@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import logo from './assets/logo.png';
 import CoreCards from './components/main-page/CoreCards';
 import { juniorCoreTeam, seniorCoreTeam } from './components/main-page/CoreMembers';
 import { Events_main } from './components/main-page/Events';
 import EventCards from './components/main-page/EventCards';
+import { Header } from './components/common/Header';
+import { Footer } from './components/common/Footer';
 
 function App() {
   const handleScroll = (id) => {
@@ -37,15 +38,7 @@ function App() {
         className="spline-background"
       ></iframe>
       {/* Header with Logo and Navigation */}
-      <header className="header">
-        <div className="container header-content">
-          <img src={logo} alt="Lakshya Logo" className="header-logo" />
-          <nav className="nav">
-            <a href="#events" className="nav-link" onClick={() => handleScroll('events')}>Events of Lakshya</a>
-            <a href="#teams" className="nav-link" onClick={() => handleScroll('teams')}>Teams of Lakshya</a>
-          </nav>
-        </div>
-      </header>
+      <Header handleScroll={handleScroll}/>
 
       {/* Welcome Section */}
       <section className="welcome-section animate-section">
@@ -139,17 +132,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="footer animate-section">
-        <div className="container text-center">
-          <p className="footer-text">Lakshya Entrepreneurship Club © 2025</p>
-          <div className="footer-links">
-            <a href="#" className="footer-link">Facebook</a>
-            <a href="#" className="footer-link">Twitter</a>
-            <a href="#" className="footer-link">Instagram</a>
-            <a href="#" className="footer-link">LinkedIn</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
