@@ -225,9 +225,12 @@ html, body {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem); /* responsive: min 1.5rem, max 3rem */
   font-weight: bold;
   margin-bottom: 1rem;
+  word-wrap: break-word;     /* ensures long words break */
+  word-break: break-word;    /* extra safety for long words */
+  overflow-wrap: break-word;
 }
 
 .hero-subtitle {
