@@ -1,4 +1,5 @@
 // HomePage.jsx
+"use client";
 import React from 'react';
 import { Events_main } from '../components/main-page/Events';
 import EventCards from '../components/main-page/EventCards';
@@ -8,16 +9,16 @@ import CoreCards from '../components/main-page/CoreCards';
 const HomePage = ({ handleScroll }) => {
   return (
     <div className="app-container">
-      <iframe
+      {/* <iframe
         src="https://my.spline.design/tvatimedoor-QHzG0oAgnGc3mChstHAoZu7K/"
         frameBorder="0"
         width="100%"
         height="100%"
         className="spline-background"
-      ></iframe>
+      ></iframe> */}
     {/* Welcome Section */}
 <section className="welcome-section animate-section flex justify-center">
-  <div className="container text-center">
+  <div className="container">
     <h1 className="welcome-title">Welcome to Lakshya</h1>
     <p className="welcome-subtitle">
       Your journey in entrepreneurship starts here!
@@ -29,13 +30,13 @@ const HomePage = ({ handleScroll }) => {
 </section>
 
       {/* Hero Section */}
-      <section className="hero-section animate-section">
+      {/* <section className="hero-section animate-section">
         <div className="container text-center">
           <h1 className="hero-title">Lakshya Entrepreneurship Club</h1>
           <p className="hero-subtitle">Empowering the next generation of innovators and leaders</p>
           <a href="#about" className="hero-button">Learn More</a>
         </div>
-      </section>
+      </section> */}
 
       {/* What is Lakshya Section */}
       <section id="about" className="about-section animate-section">
@@ -66,7 +67,7 @@ const HomePage = ({ handleScroll }) => {
       {/* Teams Section */}
       <section id="teams" className="teams-section animate-section">
         <div className="container">
-          <h2 className="section-title">Our Teams</h2>
+          <h2 className="section-title">The Team</h2>
 
           {/* Senior Core Team */}
           <div className="team-group">

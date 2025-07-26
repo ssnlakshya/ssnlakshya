@@ -23,31 +23,23 @@ a:hover {
 }
 
 .welcome-section .container {
-  position: relative;
-  left: 400px;   /* moves everything inside to the right */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .welcome-section .welcome-subtitle {
-  position: relative;
-  left: 20px;   /* move only the subtitle to the right */
+
 }
 
 .welcome-section .membership-button {
-  position: relative;
-  left: 190px;   /* move only the button further to the right */
+
 }
 
 .welcome-section .welcome-subtitle::after {
-  content: "";
-  position: absolute;
-  left: -420px;
-  top:200px;
-  bottom: -10px;             /* space below the text */
-  width: 100%;
-  height: 4px;               /* thickness of the line */
-  background: #ed993a;       /* base color (purple in Tailwind terms) */
-  box-shadow: 0 0 10px #ed993a, 0 0 20px#ed993a; /* glow effect */
-  border-radius: 2px;
+
 }
 
 body {

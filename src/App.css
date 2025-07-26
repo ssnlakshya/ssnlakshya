@@ -118,7 +118,7 @@ html, body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 2rem 0;
+  padding: 10px 0;
   width: 100%;
 }
 
@@ -129,7 +129,7 @@ html, body {
 }
 
 .header-logo {
-  width: 5rem;
+  width: 4rem;
   height: auto;
 }
 
@@ -174,7 +174,9 @@ html, body {
 
 /* Welcome Section */
 .welcome-section {
+  height: 60vh;
   padding: 3rem 0;
+  display: flex;
   background: linear-gradient(to right, #d35400, #e67e22);
   width: 100%;
   position: relative;
@@ -194,22 +196,27 @@ html, body {
 }
 
 .welcome-title {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0px;
   color: #f5f5f5;
-  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .welcome-subtitle {
   font-size: 1.5rem;
   color: #d3d3d3;
-  margin-bottom: 1.5rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .membership-button {
   display: inline-block;
   background-color: #2d2d2d;
   color: #e67e22;
+  text-align: center;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: 600;
@@ -249,7 +256,7 @@ html, body {
 .hero-title {
   font-size: clamp(2rem, 6vw, 3rem); /* responsive: min 1.5rem, max 3rem */
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   word-wrap: break-word;     /* ensures long words break */
   word-break: break-word;    /* extra safety for long words */
   overflow-wrap: break-word;
@@ -287,7 +294,7 @@ html, body {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
   color: #f5f5f5;
 }
 
@@ -343,17 +350,29 @@ html, body {
 .team-title {
   font-size: 1.5rem;
   font-weight: 600;
+  text-align: center;
   margin-bottom: 1rem;
   color: #f5f5f5;
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
 }
 
 /* Team Card Styles */
@@ -370,6 +389,7 @@ html, body {
   perspective: 1000px;
   box-shadow: 0 0 10px #e67e22, 0 0 20px rgba(230, 126, 34, 0.5);
   margin-top: 10px;
+  flex-shrink: 0; /* Prevents cards from shrinking */
 }
 
 .card-inner {
