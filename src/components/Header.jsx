@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="left-section">
-        <span className="logo-text">ssnLakshya</span>
+        <span className="logo-text">SSN Lakshya</span>
       </div>
       <nav className="right-section">
         <a href="#" className="nav-link">

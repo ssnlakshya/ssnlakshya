@@ -8,13 +8,13 @@ import CoreCards from '../components/main-page/CoreCards';
 const HomePage = ({ handleScroll }) => {
   return (
     <div className="app-container">
-      <iframe
+      {/* <iframe
         src="https://my.spline.design/tvatimedoor-QHzG0oAgnGc3mChstHAoZu7K/"
         frameBorder="0"
         width="100%"
         height="100%"
         className="spline-background"
-      ></iframe>
+      ></iframe> */}
     {/* Welcome Section */}
 <section className="welcome-section animate-section flex justify-center">
   <div className="container text-center">
