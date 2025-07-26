@@ -24,7 +24,7 @@ const TeamSection = ({ title, members }) => {
         <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 px-8 text-center">
+      <div className="grid grid-cols-2 gap-12 px-8 text-center">
         {members.map((member, index) => {
           const isFlipped = flippedIndices.includes(index);
 
