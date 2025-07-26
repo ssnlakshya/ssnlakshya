@@ -144,6 +144,28 @@ html, body {
   font-size: 1.125rem;
   font-weight: 600;
   transition: color 0.3s ease;
+  padding-right: 15px;
+}
+
+.mobile-break {
+  display: inline;
+}
+
+@media (max-width: 600px) {
+  .mobile-break {
+    display: block;
+  }
+
+  .nav {
+    gap: 1rem; /* reduce spacing between links */
+    flex-wrap: wrap; /* allow links to wrap to a new line if needed */
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.85rem; /* smaller font size for mobile */
+    padding-right: 15px;
+  }
 }
 
 .nav-link:hover {
