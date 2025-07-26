@@ -329,9 +329,9 @@ html, body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  justify-content: center;
   margin: 0 auto;
   max-width: 1200px;
+  padding: 0 2rem;
 }
 
 /* Team Card Styles */
@@ -347,6 +347,7 @@ html, body {
   transform-style: preserve-3d;
   perspective: 1000px;
   box-shadow: 0 0 10px #e67e22, 0 0 20px rgba(230, 126, 34, 0.5);
+  margin-top: 10px;
 }
 
 .card-inner {

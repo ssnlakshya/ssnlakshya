@@ -93,19 +93,14 @@ function App() {
           <div className="team-group">
             <h3 className="team-title">Senior Core Team</h3>
             <div className="team-grid">
-              <div className="team-group">
-                <h3 className="team-title">Senior Core Team</h3>
-                <div className="team-grid">
-                  {seniorCoreTeam.map((member, index) => (
-                    <CoreCards
-                      key={index}
-                      role={member.role}
-                      name={member.name}
-                      description={member.description}
-                    />
-                  ))}
-                </div>
-              </div>
+              {seniorCoreTeam.map((member, index) => (
+                <CoreCards
+                  key={index}
+                  role={member.role}
+                  name={member.name}
+                  description={member.description}
+                />
+              ))}
             </div>
           </div>
 
@@ -113,19 +108,14 @@ function App() {
           <div className="team-group">
             <h3 className="team-title">Junior Core Team</h3>
             <div className="team-grid">
-              <div className="team-group">
-                <h3 className="team-title">Junior Core Team</h3>
-                <div className="team-grid">
-                  {juniorCoreTeam.map((member, index) => (
-                    <CoreCards
-                      key={index}
-                      role={member.role}
-                      name={member.name}
-                      description={member.description}
-                    />
-                  ))}
-                </div>
-              </div>
+              {juniorCoreTeam.map((member, index) => (
+                <CoreCards
+                  key={index}
+                  role={member.role}
+                  name={member.name}
+                  description={member.description}
+                />
+              ))}
             </div>
           </div>
         </div>
