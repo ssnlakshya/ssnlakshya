@@ -15,15 +15,18 @@ const HomePage = ({ handleScroll }) => {
         height="100%"
         className="spline-background"
       ></iframe>
-
-      {/* Welcome Section */}
-      <section className="welcome-section animate-section">
-        <div className="container text-center">
-          <h1 className="welcome-title">Welcome to Lakshya</h1>
-          <p className="welcome-subtitle">Your journey in entrepreneurship starts here!</p>
-          <a href="#membership" className="membership-button">Get Membership</a>
-        </div>
-      </section>
+    {/* Welcome Section */}
+<section className="welcome-section animate-section flex justify-center">
+  <div className="container text-center">
+    <h1 className="welcome-title">Welcome to Lakshya</h1>
+    <p className="welcome-subtitle">
+      Your journey in entrepreneurship starts here!
+    </p>
+    <a href="#membership" className="membership-button">
+       Get Membership
+    </a>
+  </div>
+</section>
 
       {/* Hero Section */}
       <section className="hero-section animate-section">
