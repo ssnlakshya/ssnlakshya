@@ -1,6 +1,6 @@
 import React from "react";
 import MoneyAnimation from "../components/MoneyAnimation";
-import { eventsByCategory } from "../data/eventsData";
+import eventsByCategory from "../data/EventsData";
 import "../Events_page_index.css";
 
 
